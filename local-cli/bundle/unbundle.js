@@ -10,7 +10,7 @@
 
 const bundleWithOutput = require('./bundle').withOutput;
 const bundleCommandLineArgs = require('./bundleCommandLineArgs');
-const outputUnbundle = require('metro-bundler/build/shared/output/unbundle');
+const outputUnbundle = require('airbnb-metro-bundler/src/shared/output/unbundle');
 
 /**
  * Builds the bundle starting to look for dependencies at the given entry path.
@@ -26,6 +26,10 @@ module.exports = {
   options: bundleCommandLineArgs.concat({
     command: '--indexed-unbundle',
     description: 'Force indexed unbundle file format, even when building for android',
+    default: false,
+  }, {
+    command: '--asset-unbundle',
+    description: 'Force asset unbundle file format, even when building for ios',
     default: false,
   }),
 };

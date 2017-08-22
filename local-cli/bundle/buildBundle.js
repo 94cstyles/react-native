@@ -12,18 +12,18 @@
 'use strict';
 
 const log = require('../util/log').out('bundle');
-const Server = require('metro-bundler/build/Server');
-const Terminal = require('metro-bundler/build/lib/TerminalClass');
-const TerminalReporter = require('metro-bundler/build/lib/TerminalReporter');
-const TransformCaching = require('metro-bundler/build/lib/TransformCaching');
+const Server = require('airbnb-metro-bundler/src/Server');
+const Terminal = require('airbnb-metro-bundler/src/lib/TerminalClass');
+const TerminalReporter = require('airbnb-metro-bundler/src/lib/TerminalReporter');
+const TransformCaching = require('airbnb-metro-bundler/src/lib/TransformCaching');
 
-const outputBundle = require('metro-bundler/build/shared/output/bundle');
+const outputBundle = require('airbnb-metro-bundler/src/shared/output/bundle');
 const path = require('path');
 const saveAssets = require('./saveAssets');
-const defaultAssetExts = require('metro-bundler/build/defaults').assetExts;
-const defaultSourceExts = require('metro-bundler/build/defaults').sourceExts;
-const defaultPlatforms = require('metro-bundler/build/defaults').platforms;
-const defaultProvidesModuleNodeModules = require('metro-bundler/build/defaults').providesModuleNodeModules;
+const defaultAssetExts = require('airbnb-metro-bundler/src/defaults').assetExts;
+const defaultSourceExts = require('airbnb-metro-bundler/src/defaults').sourceExts;
+const defaultPlatforms = require('airbnb-metro-bundler/src/defaults').platforms;
+const defaultProvidesModuleNodeModules = require('airbnb-metro-bundler/src/defaults').providesModuleNodeModules;
 
 import type {RequestOptions, OutputOptions} from './types.flow';
 import type {ConfigT} from '../util/Config';
@@ -101,6 +101,7 @@ function buildBundle(
       transformModulePath: transformModulePath,
       watch: false,
       workerPath: config.getWorkerPath && config.getWorkerPath(),
+      makeStableId: config.makeStableId || ((m, id) => id),
     };
 
     packagerInstance = new Server(options);

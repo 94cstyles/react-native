@@ -13,9 +13,9 @@
 'use strict';
 
 /**
- * This is a subset of the actual `metro-bundler`'s `ResolutionResponse` class,
+ * This is a subset of the actual `airbnb-metro-bundler`'s `ResolutionResponse` class,
  * without all the stuff we don't need to know about. This allows us to use
- * `getInverseDependencies` with different versions of `metro-bundler`.
+ * `getInverseDependencies` with different versions of `airbnb-metro-bundler`.
  */
 export type ResolutionResponse<TModule> = {
   copy(data: {

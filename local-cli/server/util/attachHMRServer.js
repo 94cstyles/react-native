@@ -39,9 +39,9 @@ type DependencyOptions = {|
 |};
 
 /**
- * This is a subset of the actual `metro-bundler`'s `Server` class,
+ * This is a subset of the actual `airbnb-metro-bundler`'s `Server` class,
  * without all the stuff we don't need to know about. This allows us to use
- * `attachHMRServer` with different versions of `metro-bundler` as long as
+ * `attachHMRServer` with different versions of `airbnb-metro-bundler` as long as
  * this specific contract is maintained.
  */
 type PackagerServer<TModule> = {

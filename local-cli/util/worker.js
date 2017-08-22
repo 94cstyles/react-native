@@ -10,4 +10,4 @@
 'use strict';
 
 require('../../setupBabel')();
-module.exports = require('metro-bundler/build/JSTransformer/worker');
+module.exports = require('airbnb-metro-bundler/src/JSTransformer/worker');

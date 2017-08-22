@@ -12,19 +12,19 @@
 
 const findSymlinksPaths = require('./findSymlinksPaths');
 
-const blacklist = require('metro-bundler/build/blacklist');
+const blacklist = require('airbnb-metro-bundler/src/blacklist');
 const fs = require('fs');
 const invariant = require('fbjs/lib/invariant');
 const path = require('path');
 
-const {providesModuleNodeModules} = require('metro-bundler/build/defaults');
+const {providesModuleNodeModules} = require('airbnb-metro-bundler/src/defaults');
 
 const RN_CLI_CONFIG = 'rn-cli.config.js';
 
-import type {GetTransformOptions, PostMinifyProcess, PostProcessModules} from 'metro-bundler/build/Bundler';
-import type {HasteImpl} from 'metro-bundler/build/node-haste/Module';
-import type {TransformVariants} from 'metro-bundler/build/ModuleGraph/types.flow';
-import type {PostProcessModules as PostProcessModulesForBuck} from 'metro-bundler/build/ModuleGraph/types.flow.js';
+import type {GetTransformOptions, PostMinifyProcess, PostProcessModules} from 'airbnb-metro-bundler/src/Bundler';
+import type {HasteImpl} from 'airbnb-metro-bundler/src/node-haste/Module';
+import type {TransformVariants} from 'airbnb-metro-bundler/src/ModuleGraph/types.flow';
+import type {PostProcessModules as PostProcessModulesForBuck} from 'airbnb-metro-bundler/src/ModuleGraph/types.flow.js';
 
 /**
  * Configuration file of the CLI.
@@ -157,7 +157,7 @@ const Config = {
     },
     getProvidesModuleNodeModules: () => providesModuleNodeModules.slice(),
     getSourceExts: () => [],
-    getTransformModulePath: () => require.resolve('metro-bundler/build/transformer.js'),
+    getTransformModulePath: () => require.resolve('airbnb-metro-bundler/src/transformer.js'),
     getTransformOptions: async () => ({}),
     postMinifyProcess: x => x,
     postProcessModules: modules => modules,

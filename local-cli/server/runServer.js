@@ -14,17 +14,17 @@
 
 require('../../setupBabel')();
 const InspectorProxy = require('./util/inspectorProxy.js');
-const ReactPackager = require('metro-bundler');
-const Terminal = require('metro-bundler/build/lib/TerminalClass');
+const ReactPackager = require('airbnb-metro-bundler');
+const Terminal = require('airbnb-metro-bundler/src/lib/TerminalClass');
 
 const attachHMRServer = require('./util/attachHMRServer');
 const connect = require('connect');
 const copyToClipBoardMiddleware = require('./middleware/copyToClipBoardMiddleware');
 const cpuProfilerMiddleware = require('./middleware/cpuProfilerMiddleware');
-const defaultAssetExts = require('metro-bundler/build/defaults').assetExts;
-const defaultSourceExts = require('metro-bundler/build/defaults').sourceExts;
-const defaultPlatforms = require('metro-bundler/build/defaults').platforms;
-const defaultProvidesModuleNodeModules = require('metro-bundler/build/defaults')
+const defaultAssetExts = require('airbnb-metro-bundler/src/defaults').assetExts;
+const defaultSourceExts = require('airbnb-metro-bundler/src/defaults').sourceExts;
+const defaultPlatforms = require('airbnb-metro-bundler/src/defaults').platforms;
+const defaultProvidesModuleNodeModules = require('airbnb-metro-bundler/src/defaults')
   .providesModuleNodeModules;
 const getDevToolsMiddleware = require('./middleware/getDevToolsMiddleware');
 const http = require('http');
@@ -39,7 +39,7 @@ const unless = require('./middleware/unless');
 const webSocketProxy = require('./util/webSocketProxy.js');
 
 import type {ConfigT} from '../util/Config';
-import type {Reporter} from 'metro-bundler/build/lib/reporting';
+import type {Reporter} from 'airbnb-metro-bundler/src/lib/reporting';
 
 export type Args = {|
   +assetExts: $ReadOnlyArray<string>,
@@ -136,7 +136,7 @@ function getPackagerServer(args, config) {
       LogReporter = require(path.resolve(args.customLogReporterPath));
     }
   } else {
-    LogReporter = require('metro-bundler/build/lib/TerminalReporter');
+    LogReporter = require('airbnb-metro-bundler/src/lib/TerminalReporter');
   }
 
   /* $FlowFixMe: Flow is wrong, Node.js docs specify that process.stdout is an
